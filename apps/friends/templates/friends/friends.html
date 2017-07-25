@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <p>Hello {{request.session.f_name}}</p>
+      <a href="/friends/findfriend">Add Friend</a>
+      <a href="/logout">Logout</a>
+      <p>Friend count: {{friends.count}}</p>
+    </header>
+    <h3>Users</h3>
+    <table>
+      {%load humanize%}
+      {% for friend in friends %}
+
+      <tr>
+        <td>{{friend.friends}}</td>
+        <td>{{friend.id}}</td>
+        <td>{{request.session.user_id}}</td>
+        <td><a href="delete/{{friend.id}}">Delete</a></td>
+
+      </tr>
+
+      {%endfor%}
+    </table>
+
+  </body>
+</html>
