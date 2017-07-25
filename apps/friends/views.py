@@ -45,6 +45,7 @@ def viewfriends(request):
         return redirect('/')
     context = {
         "friends": Friend.objects.exclude(id=request.session['user_id'])
+
     }
 
     return render(request, 'friends/friends.html', context)
